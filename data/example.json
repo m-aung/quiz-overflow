@@ -1,9 +1,9 @@
 {
-  "question": "some stringsssss",
-  "choices": [
-    "{id: 1, text: 'string', isCorrect: true}", 
-    "{id: 2, text: 'string', isCorrect: false}", 
-    "{id: 3, text: 'string', isCorrect: false}",
-    "{id: 4, text: 'string', isCorrect: false}"
-  ]
+	"question": "some stringsssss",
+	"choices": [
+		"{id: 1, text: 'string', isCorrect: true}",
+		"{id: 2, text: 'string', isCorrect: false}",
+		"{id: 3, text: 'string', isCorrect: false}",
+		"{id: 4, text: 'string', isCorrect: false}"
+	]
 }

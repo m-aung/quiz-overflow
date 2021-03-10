@@ -11,134 +11,134 @@ $fourth: #c9ada7;
 $fifth: #f2e9e4;
 
 body {
-  font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
-  background-color: #fff;
-  color: rgb(58, 58, 58);
-  font-size: 1rem;
+	font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+	background-color: #fff;
+	color: rgb(58, 58, 58);
+	font-size: 1rem;
 }
 
 h1 {
-  font-size: 3rem;
+	font-size: 3rem;
 }
 
 .mainContainer {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .authContainer {
-  display: inline-flex;
-  background-color: #4a4e69;
-  padding: $primary-padding;
-  border-radius: $radius;
-  justify-content: center;
+	display: inline-flex;
+	background-color: #4a4e69;
+	padding: $primary-padding;
+	border-radius: $radius;
+	justify-content: center;
 }
 
 #login,
 #signup {
-  display: inline-block;
-  padding: 0.8rem;
-  background-color: $secondary-color;
-  border-radius: $radius;
+	display: inline-block;
+	padding: 0.8rem;
+	background-color: $secondary-color;
+	border-radius: $radius;
 }
 
 .card {
-  display: flex;
-  border: 0.4rem solid $secondary-color;
-  border-radius: $radius;
-  padding: 2rem;
+	display: flex;
+	border: 0.4rem solid $secondary-color;
+	border-radius: $radius;
+	padding: 2rem;
 }
 
 .username,
 .password {
-  display: flex;
-  margin: 5px;
-  border-radius: 4px;
-  border-width: 0.5px;
-  border-color: lightgray;
-  width: 150px;
-  margin-bottom: 5px;
-  background-color: #fff;
+	display: flex;
+	margin: 5px;
+	border-radius: 4px;
+	border-width: 0.5px;
+	border-color: lightgray;
+	width: 150px;
+	margin-bottom: 5px;
+	background-color: #fff;
 }
 
 .submit {
-  display: flex;
-  margin: 5px;
-  border-radius: 4px;
-  border-width: 0.5px;
-  border-color: lightgray;
-  font-size: 12px;
-  margin-bottom: 7px;
-  padding: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  background-color: #091549;
-  color: white;
+	display: flex;
+	margin: 5px;
+	border-radius: 4px;
+	border-width: 0.5px;
+	border-color: lightgray;
+	font-size: 12px;
+	margin-bottom: 7px;
+	padding: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #091549;
+	color: white;
 }
 
 .submit:hover {
-  cursor: pointer;
-  background-color: darken(#0e6e96, 10%);
+	cursor: pointer;
+	background-color: darken(#0e6e96, 10%);
 }
 
 a {
-  display: flex;
-  border: 1px solid black;
-  padding: 3px;
-  border-radius: 5px;
-  width: 100px;
-  font-size: 13px;
-  background-color: #5bc2d9;
-  color: black;
-  margin-left: 4px;
-  border-width: 0.5px;
-  border-color: lightgray;
-  padding-left: 5px;
+	display: flex;
+	border: 1px solid black;
+	padding: 3px;
+	border-radius: 5px;
+	width: 100px;
+	font-size: 13px;
+	background-color: #5bc2d9;
+	color: black;
+	margin-left: 4px;
+	border-width: 0.5px;
+	border-color: lightgray;
+	padding-left: 5px;
 }
 
 a:hover {
-  background-color: darken(#5bc2d9, 10%);
-  cursor: pointer;
+	background-color: darken(#5bc2d9, 10%);
+	cursor: pointer;
 }
 
 .errorMessage {
-  margin-top: 10px;
-  margin-left: 5px;
-  color: #ff97a8;
-  font-size: 0.8rem;
+	margin-top: 10px;
+	margin-left: 5px;
+	color: #ff97a8;
+	font-size: 0.8rem;
 }
 
 .error {
-  padding: 5px;
-  background-color: #fff;
-  border-radius: $radius;
+	padding: 5px;
+	background-color: #fff;
+	border-radius: $radius;
 }
 
 .multipleChoiceAnswer:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .questionSubmitBtnContainer {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .questionSubmitBtn {
-  background-color: rgb(0, 160, 0);
-  border: 0;
-  color: #fff;
-  padding: 0.5rem;
-  border-radius: $radius;
-  font-size: 1rem;
-  width: 8rem;
-  transition: background-color 175ms;
+	background-color: rgb(0, 160, 0);
+	border: 0;
+	color: #fff;
+	padding: 0.5rem;
+	border-radius: $radius;
+	font-size: 1rem;
+	width: 8rem;
+	transition: background-color 175ms;
 }
 
 .questionSubmitBtn:hover {
-  cursor: pointer;
-  background-color: darken(rgb(0, 160, 0), 5%);
+	cursor: pointer;
+	background-color: darken(rgb(0, 160, 0), 5%);
 }
 
 .questionSubmitBtn:active {
-  background-color: $secondary-color;
+	background-color: $secondary-color;
 }

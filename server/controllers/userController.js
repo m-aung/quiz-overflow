@@ -1,4 +1,4 @@
-const db = require("../models/quizModels");
+const db = require('../models/quizModels');
 
 const userController = {};
 
@@ -8,7 +8,7 @@ userController.createUser = (req, res, next) => {
 	const checkUserAlreadyExistsQuery = `SELECT username FROM users WHERE username = '${username}'`;
 	db.query(checkUserAlreadyExistsQuery, (err0, queryRes0) => {
 		if (err0) {
-			console.log("err in checkUserAlreadyExistsQuery ", err0);
+			console.log('err in checkUserAlreadyExistsQuery ', err0);
 			return next(err0);
 		} else {
 			// if user already exists, return next
@@ -20,13 +20,13 @@ userController.createUser = (req, res, next) => {
 				const createUserQuery = `INSERT INTO users (username, password) VALUES ('${username}','${password}')`;
 				db.query(createUserQuery, (err, queryRes) => {
 					if (err) {
-						console.log("err in createUserQuery ", err);
+						console.log('err in createUserQuery ', err);
 						return next(err);
 					} else {
 						const addedUserQuery = `SELECT _id FROM users WHERE username = '${username}'`;
 						db.query(addedUserQuery, (err2, queryRes2) => {
 							if (err2) {
-								console.log("err in addedUserQuery ", err2);
+								console.log('err in addedUserQuery ', err2);
 								return next(err2);
 							} else {
 								res.locals.userRecord = queryRes2.rows[0];
@@ -35,7 +35,7 @@ userController.createUser = (req, res, next) => {
 								const addHighScoreQuery = `INSERT INTO high_score (users_id) VALUES (${res.locals.userRecord._id})`;
 								db.query(addHighScoreQuery, (err3, queryRes3) => {
 									if (err3) {
-										console.log("err in addHighScoreQuery ", err3);
+										console.log('err in addHighScoreQuery ', err3);
 										return next(err3);
 									} else {
 										return next();
@@ -56,7 +56,7 @@ userController.verifyUser = (req, res, next) => {
 	const verifyUserQuery = `SELECT _id, username FROM users WHERE username = '${username}' AND password = '${password}'`;
 	db.query(verifyUserQuery, (err, queryRes) => {
 		if (err) {
-			console.log("err in verifyUserQuery ", err);
+			console.log('err in verifyUserQuery ', err);
 			return next(err);
 		} else if (queryRes.rows.length) {
 			res.locals.userRecord = queryRes.rows[0];
