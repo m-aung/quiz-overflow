@@ -1,0 +1,31 @@
+Frontend Stuff to Do:
+- 
+
+Stuff to Work On:
+- Unregistered users able to login
+- Colors and layout
+- more efficient to handle login without redux?
+- research thunk
+- composeWithDevTools
+- /index.js -> reducer or equivalent
+- is there a better, SIMPLER, way to hold and keep track of quiz data/right answers/wrong answers
+- is redux complicating some stuff that could be simpler?
+- How do we keep track of login state? To prevent or authorize access to webpages
+- Which components ABSOLUTELY NEED redux and which do not?
+- What are parent components vs child components and which components should display what information?
+    - does card container need to pass high score to each card?
+- Refactor core logic 
+- Questions propagate automatically on submit
+- Button reset after each Question
+- Remove form and use buttons
+- Issue with high-score vs current score
+
+Big stuff to work on:
+> Leaderboard
+> Can click right question multiple times
+- UI experience
+
+// Styling
+- outline for buttons
+- Colors
+- Buttons and ui

@@ -50,14 +50,10 @@ class AuthContainer extends Component {
   }
 
   render() {
-    let form = this.props.showSignup ? (
-      <Signup {...this.props} />
-    ) : (
-      <Login {...this.props} />
-    );
+    let authForm = this.props.showSignup ? ( <Signup {...this.props} /> ) : ( <Login {...this.props} /> );
     return (
       <div className="authContainer">
-      {form}
+      {authForm}
       </div>
       );
   }

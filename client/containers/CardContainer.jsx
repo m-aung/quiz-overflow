@@ -32,7 +32,7 @@ class CardContainer extends Component {
         console.log('props in cardcontainer', this.props)
         return(
             <div>
-            <Card 
+            <Card
             currentScore={this.props.currentScore}
             newHighScore={this.props.newHighScore}
             highScore={this.props.highScore}

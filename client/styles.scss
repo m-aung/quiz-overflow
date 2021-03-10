@@ -1,24 +1,52 @@
+$primary-color: lightgray;
+$secondary-color: #9a8c98;
+$radius: 0.5rem;
+
+$primary-padding: 1rem;
+
+$first: #22223b;
+$second: #4a4e69;
+$third: #9a8c98;
+$fourth: #c9ada7;
+$fifth: #f2e9e4;
+
 body {
-  background-color: #0e6e96;
-  color: #091549;
+  font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+  background-color: #fff;
+  color: rgb(58, 58, 58);
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .authContainer {
-  background-color: #5bc2d9;
-  padding: 10px;
-  width: 400px;
-  border-radius: 5px;
-  width: 260px;
+  display: inline-flex;
+  background-color: #4a4e69;
+  padding: $primary-padding;
+  border-radius: $radius;
+  justify-content: center;
 }
 
 #login,
 #signup {
-  border-radius: 5px;
-  background-color: #e1ccc3;
-  color: #1670c4;
-  padding: 10px;
-  width: 240px;
-  height: 150px;
+  display: inline-block;
+  padding: 0.8rem;
+  background-color: $secondary-color;
+  border-radius: $radius;
+}
+
+.card {
+  display: flex;
+  border: 0.4rem solid $secondary-color;
+  border-radius: $radius;
+  padding: 2rem;
 }
 
 .username,
@@ -30,7 +58,7 @@ body {
   border-color: lightgray;
   width: 150px;
   margin-bottom: 5px;
-  background-color: #5bc2d9;
+  background-color: #fff;
 }
 
 .submit {
@@ -76,7 +104,41 @@ a:hover {
 .errorMessage {
   margin-top: 10px;
   margin-left: 5px;
-  // background-color: red;
-  color: red;
-  font-size: 13px;
+  color: #ff97a8;
+  font-size: 0.8rem;
+}
+
+.error {
+  padding: 5px;
+  background-color: #fff;
+  border-radius: $radius;
+}
+
+.multipleChoiceAnswer:hover {
+  cursor: pointer;
+}
+
+.questionSubmitBtnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.questionSubmitBtn {
+  background-color: rgb(0, 160, 0);
+  border: 0;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: $radius;
+  font-size: 1rem;
+  width: 8rem;
+  transition: background-color 175ms;
+}
+
+.questionSubmitBtn:hover {
+  cursor: pointer;
+  background-color: darken(rgb(0, 160, 0), 5%);
+}
+
+.questionSubmitBtn:active {
+  background-color: $secondary-color;
 }

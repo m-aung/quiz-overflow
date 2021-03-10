@@ -66,6 +66,7 @@ app.get(
 		// after logging in or if we need to send a res.locals with empty key values for question and choices.
 		if (!res.locals.cookieSessionMatch)
 			return res.status(200).json("Invalid session");
+		console.log("about to send res.locals: ", res.locals);
 		return res.status(200).json(res.locals);
 	}
 );

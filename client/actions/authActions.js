@@ -6,10 +6,16 @@ import {
   POST_SIGNUP_SUCCESS,
   POST_SIGNUP_FAILURE,
   SHOW_SIGNUP,
+  LOGIN_STATUS,
 } from './actionTypes';
 
-export const postLogin = ({ username, password }) => dispatch => {
-  dispatch(postLoginRequest());
+// checkLoginStatus
+export const changeLoginStatus = (bool) => ({
+  type: LOGIN_STATUS,
+  payload: { loggedIn: bool },
+});
+
+export const postLogin = ({ username, password }) => (dispatch) => {
   fetch('/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/JSON' },
@@ -18,23 +24,19 @@ export const postLogin = ({ username, password }) => dispatch => {
       password,
     }),
   })
-    .then(data => data.json())
-    .then(data => {
+    .then((data) => data.json())
+    .then((data) => {
       if (data && data.loggedIn !== undefined) {
         data.loginFailure = !data.loggedIn ? true : false;
         dispatch(postLoginSuccess(data));
       }
     })
-    .catch(data => {
+    .catch((data) => {
       dispatch(postLoginFailure(data));
     });
 };
 
-const postLoginRequest = () => ({
-  type: POST_LOGIN_REQUEST,
-});
-
-const postLoginSuccess = payload => ({
+const postLoginSuccess = (payload) => ({
   type: POST_LOGIN_SUCCESS,
   payload: {
     loggedIn: payload.loggedIn,
@@ -43,12 +45,12 @@ const postLoginSuccess = payload => ({
   },
 });
 
-const postLoginFailure = err => ({
+const postLoginFailure = (err) => ({
   type: POST_LOGIN_FAILURE,
   payload: err,
 });
 
-export const postSignup = ({ username, password }) => dispatch => {
+export const postSignup = ({ username, password }) => (dispatch) => {
   dispatch(postSignupRequest());
   fetch('/signup', {
     method: 'POST',
@@ -58,14 +60,14 @@ export const postSignup = ({ username, password }) => dispatch => {
       password,
     }),
   })
-    .then(data => data.json())
-    .then(data => {
+    .then((data) => data.json())
+    .then((data) => {
       if (data && data.loggedIn !== undefined) {
         data.loginFailure = !data.loggedIn ? true : false;
         dispatch(postSignupSuccess(data));
       }
     })
-    .catch(data => {
+    .catch((data) => {
       dispatch(postSignupFailure(data));
     });
 };
@@ -74,7 +76,7 @@ const postSignupRequest = () => ({
   type: POST_SIGNUP_REQUEST,
 });
 
-const postSignupSuccess = payload => ({
+const postSignupSuccess = (payload) => ({
   type: POST_SIGNUP_SUCCESS,
   payload: {
     loggedIn: payload.loggedIn,
@@ -83,12 +85,12 @@ const postSignupSuccess = payload => ({
   },
 });
 
-const postSignupFailure = err => ({
+const postSignupFailure = (err) => ({
   type: POST_SIGNUP_FAILURE,
   payload: err,
 });
 
-export const showSignup = toggle => ({
+export const showSignup = (toggle) => ({
   type: SHOW_SIGNUP,
   payload: toggle,
 });

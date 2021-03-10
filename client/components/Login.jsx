@@ -6,7 +6,7 @@ class Login extends Component {
   }
 
   render() {
-    const errorMsg = <span className="error">{this.props.message}</span>;
+    const errorMsg = <div className="error">{this.props.message}</div>;
     return (
       <div id="login">
         <form id="loginForm" onSubmit={this.props.handleLogin}>

@@ -1,7 +1,7 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
-  loggedIn: false,
+  loggedIn: false, // if cookie(SSID) exists then true, else false
   message: null,
   showSignup: false,
   loginFailure: false,
@@ -10,11 +10,6 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.POST_LOGIN_REQUEST: {
-      return {
-        ...state,
-      };
-    }
     case types.POST_LOGIN_SUCCESS: {
       console.log('in reducer', action);
       const { loggedIn, message, loginFailure } = action.payload;
@@ -55,6 +50,12 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         showSignup: action.payload,
+      };
+    }
+    case types.LOGIN_STATUS: {
+      return {
+        ...state,
+        loggedIn: action.payload,
       };
     }
     default: {

@@ -8,14 +8,13 @@ const mapStateToProps = state => ({
 });
 
 const MainContainer = props => {
-
   const auth = props.loggedIn ? (
     <CardContainer />
   ) : (
     <AuthContainer />
   );
 
-  return auth;
+  return <div className="mainContainer">{auth}</div>;
 
 };
 
