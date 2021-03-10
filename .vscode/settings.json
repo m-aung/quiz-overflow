@@ -1,0 +1,7 @@
+{
+	"editor.tabSize": 2,
+	"editor.wordWrap": "on",
+	"editor.autoIndent": "none",
+	"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+	"html.format.indentHandlebars": true
+}
