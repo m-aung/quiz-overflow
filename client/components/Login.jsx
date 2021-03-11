@@ -17,7 +17,7 @@ class Login extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log('Login render fired...');
     const errorMsg = <span className="error">{this.props.message}</span>;
     const guestLogin = (
       <span className="guest" id="guest" onClick={this.onSubmit}>

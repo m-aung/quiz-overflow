@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Cookies from 'js-cookie';
+
 import AuthContainer from './containers/AuthContainer';
 import CardContainer from './containers/CardContainer';
 import * as authActions from './actions/authActions';
-import PlayerStats from './components/PlayerStats';
 
 const mapStateToProps = (state) => ({
   loggedIn: state.auth.loggedIn,
@@ -20,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('App componentDidMount fired...');
+    // console.log('App componentDidMount fired...');
     fetch('/check-session')
       .then((res) => res.json())
       .then((bool) => {
@@ -30,6 +29,7 @@ class App extends Component {
   }
 
   render() {
+    // console.log('App render fired...');
     const auth = this.props.loggedIn ? <CardContainer /> : <AuthContainer />;
     return <div className="mainContainer">{auth}</div>;
   }

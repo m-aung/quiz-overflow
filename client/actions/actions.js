@@ -1,29 +1,25 @@
-import { bindActionCreators } from 'redux';
 import * as types from './actionTypes';
 
-export const getNewCard = () => (dispatch) => {
-  dispatch({ type: types.NEW_CARD_REQUEST });
+export const getNewDeck = () => (dispatch) => {
+  console.log('actions:getNewDeck fired...');
   fetch('/quiz-overflow')
     .then((res) => res.json())
-    .then((res) => {
-      let card = {
-        question: res.question,
-        choices: [
-          res.choices[0],
-          res.choices[1],
-          res.choices[2],
-          res.choices[3],
-        ],
-      };
-      console.log('Card from db', card);
-      return card;
-    })
-    .then((card) =>
-      dispatch({
-        type: types.NEW_CARD_RECEIVED,
-        payload: card,
-      })
-    );
+    .then((data) => {
+      const deck = data.questions;
+      return dispatch({
+        type: types.NEW_DECK_RECEIVED,
+        payload: deck,
+      });
+    });
+};
+
+export const getNewCard = (deckSize) => (dispatch) => {
+  console.log('actions:getNewCard fired...');
+  if (deckSize.length === 0) dispatch(getNewDeck());
+  else
+    return dispatch({
+      type: types.GET_NEW_CARD,
+    });
 };
 
 export const getHighScore = () => (dispatch) => {
@@ -59,7 +55,6 @@ export const newHighScore = (score) => ({
   payload: score,
 });
 
-export const correctChoice = (num) => ({
+export const correctChoice = () => ({
   type: types.CORRECT_CHOICE,
-  payload: num,
 });

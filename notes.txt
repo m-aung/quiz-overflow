@@ -1,3 +1,21 @@
+Current feature, we are now receiving five cards at a time
+it will be arriving as an array of objects
+we will need to save this array into the state
+when we are requesting this array we will be sending an array of already recieved cards
+save this array into state on receive
+
+// update our fetch and state to receive the array
+// hardcode question to show first item of array
+// ensure question is loaded on page load
+  // logic to iterate over array and serve questions
+
+
+
+
+
+
+
+
 Frontend Stuff to Do:
 - 
 

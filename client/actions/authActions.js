@@ -1,5 +1,4 @@
 import {
-  POST_LOGIN_REQUEST,
   POST_LOGIN_SUCCESS,
   POST_LOGIN_FAILURE,
   POST_SIGNUP_REQUEST,
@@ -15,7 +14,7 @@ export const changeLoginStatus = (bool) => ({
   payload: bool,
 });
 
-export const checkSession = () => (dispatch) => {
+export const checkSession = () => {
   console.log('checkSession fired...');
   fetch('/quiz-overflow');
 };
