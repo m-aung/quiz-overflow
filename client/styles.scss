@@ -18,15 +18,20 @@ body {
   color: $custom-black;
   font-size: 1rem;
   background-color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   font-size: 3rem;
+  // border: 1px solid orange;
+  margin: 0;
 }
 
 .h1AndIconContainer {
   display: flex;
   justify-content: center;
+  padding: 2rem 2rem 2rem 2rem;
 }
 
 .iconContainer {
@@ -46,70 +51,96 @@ h1 {
   justify-content: center;
 }
 
-.authContainer {
-  display: flex;
-  background-color: #4a4e69;
-  padding: $primary-padding;
-  border-radius: $radius;
-  justify-content: center;
-  width: 45em;
-}
-
-#login {
+.login {
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
-  padding: 0.2em;
-  background-color: $secondary-color;
+  padding: 0.7em;
+  margin: 0;
+  border: 1px solid lightgray;
   border-radius: $radius;
-  width: 15em;
-  height: 11.4em;
 }
 
 .loginField {
   display: flex;
   flex-direction: column;
-  margin: 0.2em;
-  padding: 0.5em;
-  border-radius: $radius;
-  background-color: $fourth;
+  padding: 1em;
 }
 
-#username,
-#password {
-  height: 1.5em;
-  border-radius: $radius / 2;
-  border: 1px solid $second;
+.userName,
+.password,
+.signInBtn,
+.signUpBtn {
+  font-size: 1.3rem;
 }
 
-#username:focus,
-#password:focus {
-  outline: 1px solid $second;
+.userName,
+.password {
+  padding: 0.15rem 0.3rem;
+  color: lighten($custom-black, 10%);
+  line-height: 2.5rem;
+  width: 15rem;
+  border: 1px solid lightgray;
+  border-radius: $radius/2;
+}
+
+.userName:focus,
+.password:focus {
+  outline: 0;
 }
 
 .loginButtons {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 0.5em;
+  flex-direction: column;
+  margin: 1rem;
+  width: 100%;
+  margin: 1rem auto 0 auto;
 }
 
-#signInBtn,
-#signUpBtn {
-  font-size: 1em;
-  height: 1.5em;
-  border: 1px solid $second;
+.signUpBtn,
+.signInBtn {
+  box-shadow: 1px 1px 1px 1px lightgray;
+}
+
+.signUpBtn {
+  color: #fafafa;
+  background-color: $custom-green;
+  margin-top: 1rem;
+  transition: background-color 150ms;
+}
+
+.signUpBtn:hover {
+  background-color: lighten($custom-green, 5%);
+}
+
+.signUpBtn:active {
+  background-color: darken($custom-green, 5%);
+}
+
+.signInBtn {
+  margin-top: -0.5rem;
+  color: #fafafa;
+  background-color: steelblue;
+  transition: background-color 150ms;
+}
+
+.signInBtn:hover {
+  background-color: lighten(steelblue, 5%);
+}
+
+.signInBtn:active {
+  background-color: darken(steelblue, 5%);
+}
+
+.signInBtn,
+.signUpBtn {
+  border: 0px solid $second;
+  padding: 0.4rem;
   border-radius: $radius / 2;
   cursor: pointer;
 }
 
-#signInBtn:hover,
-#signUpBtn:hover {
-  background-color: lighten($fourth, 50%);
-}
-
-#signInBtn:focus,
-#signUpBtn:focus {
+.signInBtn:focus,
+.signUpBtn:focus {
   outline: none;
 }
 
@@ -159,7 +190,6 @@ a:hover {
   margin: 0.2em;
   padding: 0.5em;
   font-size: 0.8em;
-  background-color: #f2e9e4;
   border-radius: $radius;
 }
 
@@ -168,17 +198,11 @@ a:hover {
 }
 
 .guest {
-  background-color: darken(#50c467, 10%);
-  border: 1px solid $second;
-  border-radius: $radius;
-  padding: 1px 15px;
-  font-size: 1.5em;
-  color: $fifth;
+  color: rgb(185, 185, 185);
+  font-size: 1em;
+  margin-left: auto;
+  margin-top: auto;
   cursor: pointer;
-}
-
-.guest:hover {
-  background-color: darken(#50c467, 5%);
 }
 
 .multipleChoiceAnswer:hover {
@@ -204,7 +228,7 @@ a:hover {
   margin: 0;
   width: 100%;
   padding: 2rem;
-  border: 0.2rem solid lighten($custom-black, 20%);
+  border: 0.1rem solid rgb(187, 187, 187);
   border-radius: $radius;
 }
 

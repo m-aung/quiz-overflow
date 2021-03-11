@@ -1,9 +1,8 @@
-const fetch = require('node-fetch');
-
+const db = require('../models/quizModels');
 const quizController = {};
 
 const questions = [];
-let anyMoreQuestions = true;
+const anyMoreQuestions = true;
 
 quizController.getQuestion = (req, res, next) => {
   if (res.locals.cookieSessionMatch) {
@@ -18,46 +17,39 @@ quizController.getQuestion = (req, res, next) => {
     // if empty, call api, fill up questions
     if (!questions.length) {
       fetch('https://opentdb.com/api.php?amount=50&category=18&type=multiple')
-      .then(data => data.json())
-      .then(data => {
-        if (data.response_code) {
+      .then(res => res.json())
+      .then(res => {
+        if (res.response_code) {
           res.locals.questions = null;
           return next();
         }
-        const { results } = data;
+        const { results } = res;
         
         const output = results.map(el => {
           // error check el?
           const { question, correct_answer, incorrect_answers } = el;
           const choices = [];
           choices.push({text: correct_answer, is_correct: true});
-          console.log('incorrect: ', incorrect_answers);
           const wrong = incorrect_answers.map(ele => {
             return {text: ele, is_correct: false};
           });
-          choices.push(...wrong);
-          
-          const randomNum = Math.floor(Math.random() * 4);
-          for (let i = 0; i < randomNum; i++) {
-            choices.unshift(choices.pop());
-          }
-          
+          choices.concat(wrong);
           return { question, choices };
         });
         
-        questions.push(...output);
+        questions.push(output);
         
         res.locals.questions = questions.splice(questions.length - 5);
-        // console.log(res.locals.questions);
+        console.log(res.locals.questions);
         return next();        
       })
       
-    } else {    
-      res.locals.questions = questions.splice(questions.length - 5);
-      // console.log('rest: ',res.locals.questions[0]['choices'] )
-      anyMoreQuestions = !!questions.length
-      return next();
     }
+    
+    res.locals.questions = questions.splice(questions.length - 5);
+console.log('rest: ', )
+    anyMoreQuestions = !!questions.length
+    return next();
     
   } else {
     return next();

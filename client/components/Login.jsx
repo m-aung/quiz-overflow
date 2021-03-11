@@ -21,22 +21,22 @@ class Login extends Component {
     const errorMsg = <span className="error">{this.props.message}</span>;
     const guestLogin = (
       <span className="guest" id="guest" onClick={this.onSubmit}>
-        Play as a Guest
+        Play as Guest
       </span>
     );
 
     return (
-      <div id="login">
+      <div className="login">
         <form className="loginField">
-          <input id="username" placeholder="Username" type="text" />
+          <input id="username" className="userName" placeholder="username..." type="text" />
           <br />
-          <input id="password" placeholder="Password" type="password" />
+          <input id="password" className="password" placeholder="password..." type="password" />
           <br />
           <div className="loginButtons">
-            <button id="signInBtn" onClick={this.onSubmit}>
+            <button id="signInBtn" className="signInBtn" onClick={this.onSubmit}>
               Log In
             </button>
-            <button id="signUpBtn" onClick={this.onSubmit}>
+            <button id="signUpBtn" className="signUpBtn" onClick={this.onSubmit}>
               Sign Up
             </button>
           </div>
