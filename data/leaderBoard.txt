@@ -1,0 +1,4 @@
+UPDATE high_score SET high_score = 200 WHERE users_id = 6;
+UPDATE high_score SET high_score = 500 WHERE users_id = 7;
+UPDATE high_score SET high_score = 301 WHERE users_id = 5;
+UPDATE high_score SET high_score = 503 WHERE users_id = 8;

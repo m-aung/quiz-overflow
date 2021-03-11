@@ -9,11 +9,13 @@ scoreController.getHighScore = (req, res, next) => {
       if (err) {
         console.log('error in getHighScore: ', err);
         return next(err);
+      } else if (!queryRes.rows[0]) {
+        res.locals.highScore = 0;
       } else {
         console.log('high score: ', queryRes.rows[0].high_score);
         res.locals.highScore = queryRes.rows[0].high_score;
-        return next();
       }
+      return next();
     });
   } else {
     return next();
@@ -22,8 +24,8 @@ scoreController.getHighScore = (req, res, next) => {
 
 scoreController.updateHighScore = (req, res, next) => {
   if (res.locals.cookieSessionMatch) {
-    console.log(req.body)
-    console.log(typeof(req.body.score))
+    console.log(req.body);
+    console.log(typeof req.body.score);
     if (req.body.score > res.locals.highScore) {
       const updateScoreQuery = `UPDATE high_score SET high_score = ${req.body.score} WHERE users_id = ${req.cookies.ssid}`;
       db.query(updateScoreQuery, (err, queryRes) => {
