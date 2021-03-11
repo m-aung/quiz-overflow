@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const quizController = require('./controllers/quizController');
+const quizControllerDB = require('./controllers/quizControllerDB');
 const userController = require('./controllers/userController');
 const cookieController = require('./controllers/cookieController');
 const sessionController = require('./controllers/sessionController');
@@ -72,6 +73,7 @@ app.post(
         console.log('session cookieSessionMatch', res.locals.cookieSessionMatch);
         // after frontend is ready to test, see if we can redirect to '/' in the case a session expires
         // after logging in or if we need to send a res.locals with empty key values for question and choices.
+        
         if (!res.locals.cookieSessionMatch) {
           return res.status(200).json('Invalid session');
         }
@@ -80,22 +82,21 @@ app.post(
       );
       
       app.get(
-        '/high-score',
-        sessionController.isLoggedIn,
-        scoreController.getHighScore,
+        '/quiz-overflowDB',
+        // sessionController.isLoggedIn,
+        quizControllerDB.getQuestion,
         (req, res) => {
-          if (!res.locals.cookieSessionMatch) {
-            return res.status(200).json('Invalid session');
-          }
+          console.log('session cookieSessionMatch', res.locals.cookieSessionMatch);
+          // if (!res.locals.cookieSessionMatch) {
+          //   return res.status(200).json('Invalid session');
+          // }
           return res.status(200).json(res.locals);
         }
-        );
+        )
         
-        app.put(
+        app.get(
           '/high-score',
           sessionController.isLoggedIn,
-          scoreController.getHighScore,
-          scoreController.updateHighScore,
           scoreController.getHighScore,
           (req, res) => {
             if (!res.locals.cookieSessionMatch) {
@@ -105,19 +106,40 @@ app.post(
           }
           );
           
-          app.post('/questions', questionController.addQuestion, (req, res) => {
-            return res.status(200).send(res.locals.addedMsg);
-          })
-          
-          app.use((req, res, next) => {
-            return res.status(404).send('Not Found');
-          });
-          
-          app.use((err, req, res, next) => {
-            console.log('error handler', err);
-            return res.status(500).send('Internal Server Error');
-          });
-          
-          app.listen(3000, () => {
-            console.log('Server listening on port 3000');
-          });
+          app.put(
+            '/high-score',
+            sessionController.isLoggedIn,
+            scoreController.getHighScore,
+            scoreController.updateHighScore,
+            // scoreController.getHighScore,
+            (req, res) => {
+              if (!res.locals.cookieSessionMatch) {
+                return res.status(200).json('Invalid session');
+              }
+              return res.status(200).json(res.locals);
+            }
+            );
+            
+            app.post('/questions', questionController.addQuestion, (req, res) => {
+              return res.status(200).send(res.locals.addedMsg);
+            })
+            
+            app.get('/leaderboard', scoreController.getLeaderboard, (req, res) => {
+              // error check?
+              return res.status(200).json(res.locals.leaderboard);
+            }
+            )
+            
+            app.use((req, res, next) => {
+              return res.status(404).send('Not Found');
+            });
+            
+            app.use((err, req, res, next) => {
+              console.log('error handler', err);
+              return res.status(500).send('Internal Server Error');
+            });
+            
+            app.listen(3000, () => {
+              console.log('Server listening on port 3000');
+            });
+            

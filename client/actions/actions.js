@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 
 export const getNewDeck = () => (dispatch) => {
   console.log('actions:getNewDeck fired...');
-  fetch('/quiz-overflow')
+  fetch('/quiz-overflowDB')
     .then((res) => res.json())
     .then((data) => {
       const deck = data.questions;
@@ -35,19 +35,21 @@ export const getHighScore = () => (dispatch) => {
 };
 
 export const updateHighScore = (score) => (dispatch) => {
-  dispatch({ type: types.UPDATING_HIGHSCORE });
+  console.log('actions:updateHighScore fired...');
+  console.log(score);
   fetch('/high-score', {
     method: 'put',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ score: score }),
   })
     .then((res) => res.json())
-    .then((res) =>
+    .then((res) => {
+      console.log('reeeeeeeee', res);
       dispatch({
-        type: types.HIGHSCORE_UPDATED,
-        payload: res,
-      })
-    );
+        type: types.HIGHSCORE_RECEIVED,
+        payload: res.highScore,
+      });
+    });
 };
 
 export const newHighScore = (score) => ({
@@ -55,6 +57,8 @@ export const newHighScore = (score) => ({
   payload: score,
 });
 
-export const correctChoice = () => ({
-  type: types.CORRECT_CHOICE,
-});
+export const correctChoice = (currScore, highScore) => (dispatch) => {
+  console.log('actions:correctChoice fired...', currScore, highScore);
+  if (currScore >= highScore) dispatch(updateHighScore(currScore + 1));
+  dispatch({ type: types.CORRECT_CHOICE });
+};

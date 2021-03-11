@@ -1,0 +1,105 @@
+
+[
+  ["In Javascript, what type of value is returned from calling Date() as a function? (ex. const d = Date())",
+    
+    "string",
+    "object",
+    "number",
+    "null"
+  ],
+  
+  
+  
+  ["Inside of a loop, variables declared with which Javascript keyword can be redeclared?",
+    "var",
+    "let",
+    "const",
+    "int"
+  ],
+  
+  
+  ["In Javascript, if i is 4, what will be returned from the statement return i++?",
+    
+    "4",
+    "5",
+    "null",
+    "NaN"
+  ],
+  
+  
+  ["Which of these is valid destructuring in Javascript?",
+    
+    "const { result } = data",
+    "()",
+    "if i = 5 then",
+    "if i == 5 then"
+  ],
+  
+  
+  ["How to write an IF statement in JavaScript?",
+    
+    "if (i == 5)",
+    "if i = 5",
+    "if i = 5 then",
+    "if i == 5 then"
+  ],
+  
+  
+  
+  ["How to write an IF statement in JavaScript?",
+    
+    "if (i == 5)",
+    "if i = 5",
+    "if i = 5 then",
+    "if i == 5 then"
+  ],
+  
+  
+  ["How to write an IF statement in JavaScript?",
+    
+    "if (i == 5)",
+    "if i = 5",
+    "if i = 5 then",
+    "if i == 5 then"
+  ]
+]
+
+
+
+
+
+{"add": [
+  ["Inside which HTML element do we put the JavaScript?", "<script>", "<javascript>", "<js>", "<scripting>"],
+  
+  ["How do you write \"Hello World\" in an alert box?", "alert(\"Hello World\");", "alertBox(\"Hello World\");", "msg(\"Hello World\");", "msgBox(\"Hello World\");"],
+  
+  ["How do you create a function in JavaScript?",
+    "function myFunction()",
+    "function:myFunction()",
+    "function = myFunction()",
+    "function myFunction"
+  ],
+  
+  ["How to write an IF statement in JavaScript?",
+    
+    "if (i == 5)",
+    "if i = 5",
+    "if i = 5 then",
+    "if i == 5 then"
+  ],
+  
+  ["How do you find the number with the highest value of x and y?",
+    "Math.max(x, y)",
+    "ceil(x, y)",
+    "Math.ceil(x, y)",
+    "top(x, y)"
+  ],
+  
+  ["What will the following code return: Boolean(10 > 9)",
+    "true",
+    "false",
+    "NaN",
+    "1"
+  ]
+  
+  ]}

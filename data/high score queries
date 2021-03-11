@@ -1,0 +1,19 @@
+UPDATE high_score SET high_score = 1 WHERE users_id = 5;
+
+UPDATE high_score SET high_score = 2 WHERE users_id = 6;
+
+UPDATE high_score SET high_score = 404 WHERE users_id = 10;
+
+
+
+
+
+
+
+
+ SELECT * FROM high_score ORDER BY high_score DESC LIMIT 10;
+
+ SELECT username, high_score FROM high_score h JOIN users u ON u._id = h.users_id ORDER BY high_score DESC LIMIT 10;
+
+
+

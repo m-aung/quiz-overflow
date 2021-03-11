@@ -205,7 +205,11 @@ a:hover {
   cursor: pointer;
 }
 
-.multipleChoiceAnswer:hover {
+.multipleChoice {
+  margin: 1rem;
+}
+
+.multipleChoice:hover {
   cursor: pointer;
 }
 
@@ -235,6 +239,7 @@ a:hover {
 .playerStatsContainer {
   display: inline-block;
   height: 20%;
+  max-height: 5.35rem;
   color: white;
   padding: 0 1rem 0 0.8rem;
   position: relative;
@@ -301,4 +306,49 @@ a:hover {
 
 .questionSubmitBtn:active {
   background-color: lighten($custom-green, 5%);
+}
+
+.feedbackContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.correctFeedback {
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 1;
+  height: 5rem;
+  width: 5rem;
+  background-color: $custom-green;
+  border-radius: 100px;
+  animation: fade 4s ease-out forwards;
+}
+
+.incorrectFeedback {
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 1;
+  height: 5rem;
+  width: 5rem;
+  background-color: rgb(233, 0, 0);
+  border-radius: 100px;
+  // animation: fade 2s linear forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
